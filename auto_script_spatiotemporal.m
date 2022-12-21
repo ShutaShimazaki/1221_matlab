@@ -7,7 +7,7 @@ DATE = "221209";
 SP = 19.7;
 
 %パスを通す
-addpath("function");
+addpath(genpath("function"));
 addpath(genpath(sprintf("input/%s", DATE)));
 addpath(genpath(sprintf("measurement_conditions/%s", DATE)));
 
@@ -28,6 +28,7 @@ filename_array = string({files.name});
 for idx=1:length(filename_array)
     filename = filename_array(idx);
     sprintf("ファイル名は　%s　です", filename_array(idx))
+    %% 
     
     %測定データをload
     load(sprintf("measurement_conditions/%s/%s", DATE, filename))
@@ -39,19 +40,19 @@ for idx=1:length(filename_array)
 
     %% 選択
     %①temporal(ksai=定数) ②spational(tau=定数)　③spatiotemporal
-    choice = 2;
+    choice = 1;
     %% 相関計算
     if choice == 1 %temporal
         constant_X = 3  ;
         %ACF
         [TAU, COR] = temporal_correlation(XT, TIME_SCALE, constant_X);
-        %Fitting
+        %Run Fitting
         run("fitting_temporal.mlx")
-        %Plot
-        %semilogx(TAU,COR)
-        semilogx(TAU,COR)
-        xlabel('τ (s)','FontSize',14,'FontWeight','bold');
-        ylabel('Correlation(τ)','FontSize',14,'FontWeight','bold');
+        %Run Plot
+        run("temporal_plots.mlx")
+        %Save workspace
+        save(sprintf('workspace/%s/temporal_myprogram_%s.mat',DATE, filename))
+        clearvars -except filename_array DATE
         
 
     elseif choice == 2
@@ -70,20 +71,19 @@ for idx=1:length(filename_array)
         [KSAI, TAU, COR] = spatiotemporal_correlation(XT,TIME_SCALE,X_SCALE);
         COR(isnan(COR)) = 0; %NaNを0に置換する
 
-        %run fitting
+        %Run fitting
         run("fitting_spatiotemporal.mlx")
 
-        %run plot
-        run("plots.mlx")
+        %Run plot
+        run("spatiotemporal_plots.mlx")
         
     elseif choice == 4
-        constant_X = 10  ;
+        constant_X = 3  ;
         %ACF
         [TAU, COR] = xcorr_temporal_correlation(XT, TIME_SCALE, constant_X);
         %Fitting
         run("fitting_temporal.mlx")
         %Plot
-        %semilogx(TAU,COR)
         semilogx(TAU,COR)
         xlabel('τ (s)');
         ylabel('Correlation(τ)');
