@@ -4,7 +4,7 @@ clear;
 
 % 共通測定条件（要変更！！）
 DATE = "221209";
-SP = 19.7;
+SP = 7;
 
 %パスを通す
 addpath(genpath("function"));
@@ -40,7 +40,7 @@ for idx=1:length(filename_array)
 
     %% 選択
     %①temporal(ksai=定数) ②spational(tau=定数)　③spatiotemporal
-    choice = 1;
+    choice = 3;
     %% 相関計算
     if choice == 1 %temporal
         constant_X = 3  ;
@@ -70,8 +70,10 @@ for idx=1:length(filename_array)
         %ACF
         [KSAI, TAU, COR] = spatiotemporal_correlation(XT,TIME_SCALE,X_SCALE);
         COR(isnan(COR)) = 0; %NaNを0に置換する
+       %% 
 
         %Run fitting
+        SP = 7;
         run("fitting_spatiotemporal.mlx")
 
         %Run plot
