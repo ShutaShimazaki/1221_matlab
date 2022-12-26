@@ -8,6 +8,7 @@ SP = 7;
 
 %ƒpƒX‚ð’Ê‚·
 addpath(genpath("function"));
+addpath(genpath("script"));
 addpath(genpath(sprintf("input/%s", DATE)));
 addpath(genpath(sprintf("measurement_conditions/%s", DATE)));
 
