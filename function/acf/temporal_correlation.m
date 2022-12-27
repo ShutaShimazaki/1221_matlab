@@ -1,9 +1,8 @@
-function [TAU, COR] = temporal_correlation(XT, TIME_SCALE, X)
+function [TAU, COR] = temporal_correlation(XT, TIME_SCALE,TAU_MAX, X)
 %定点(X)における時間相関を求める
 %% 変数宣言
 TIME_SERIES = size(XT,1); %1000
 PIXEL = size(XT,2); %32
-TAU_MAX = 100; %TAUの個数 = PIXEL数へダウンサンプリング
 %% 事前割り当て
 TAU = zeros(1,TAU_MAX);
 TAU_BETWEEN = round(logspace(0, 2, TAU_MAX)); %対数的に等間隔なTAU_MAX個の点を生成。
