@@ -9,6 +9,7 @@ SP = 7;
 %ƒpƒX‚ð’Ê‚·
 addpath(genpath("function"));
 addpath(genpath("script"));
+addpath(genpath("output"));
 addpath(genpath(sprintf("input/%s", DATE)));
 addpath(genpath(sprintf("measurement_conditions/%s", DATE)));
 
@@ -50,13 +51,13 @@ for idx=1:length(filename_array)
         %ACF
         [TAU, COR] = temporal_correlation(XT, TIME_SCALE,TAU_MAX,constant_X);
         %Run Fitting
-        run("fitting_temporal.mlx")
+         %run("fitting_temporal.mlx")
         %Run Plot
-        run("temporal_plots.mlx")
-        %Run compare 
+        %run("temporal_plots.mlx")
+         %Run compare 
         run("compare_with_zen.mlx")
         %Save workspace
-        save(sprintf('workspace/%s/temporal_myprogram_%s.mat',DATE, filename))
+         %save(sprintf('workspace/%s/temporal_myprogram_%s.mat',DATE, filename))
         
         
 
