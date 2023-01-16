@@ -14,25 +14,23 @@ addpath(genpath(sprintf("input/%s", DATE)));
 addpath(genpath(sprintf("measurement_conditions/%s", DATE)));
 
 %% mkdir (作成されるべきdirectoryが未だ存在しないならば、作成する）
-    for folder_name = [sprintf("output/%s", DATE) sprintf("workspace/%s", DATE)]
+    for folder_name = [sprintf("output/%s", DATE)  sprintf("workspace/%s", DATE)]
         if not(exist(folder_name,'dir'))
             mkdir(folder_name)
         end
     end
-
-%測定条件を保持したワークスペースファイル達を生成する
-run(sprintf("script_conditions_%s.m", DATE));
-clearvars -except DATE
+%% 最新のmeasurement_conditionsを反映
+    run(sprintf("script_conditions_%s.m", DATE));
 %% loop回すべき全ファイルを取得
 files = dir(sprintf('measurement_conditions/%s/*.mat', DATE)); 
 filename_array = string({files.name});
 %% 各測定条件についてloop
 for idx=1:length(filename_array)
-    clearvars -except filename_array DATE
+    clearvars -except filename_array DATE idx
     filename = filename_array(idx);
     sprintf("ファイル名は　%s　です", filename_array(idx))
     %測定データをload
-    load(sprintf("measurement_conditions/%s/%s.mat", DATE, filename))
+    load(sprintf("measurement_conditions/%s/%s", DATE, filename))
    
     %%
     XT = imread(sprintf("input/%s/lsm/%s",DATE, filename));
