@@ -43,10 +43,9 @@ for idx=1:length(filename_array)
     choice = 1;
     %% 相関計算
     if choice == 1 %temporal
-        constant_X = 60  ;
-        TAU_MAX = 100; %TAUの個数 = PIXEL数へダウンサンプリング
+        NUMBER_TAU = 100; % tauの個数（＝上限）を設定
         %ACF
-        [TAU, COR] = temporal_correlation(XT, TIME_SCALE,TAU_MAX,constant_X);
+        [TAU, COR] = temporal_correlation(XT, TIME_SCALE, NUMBER_TAU);
         %Run Fitting
          run("fitting_temporal.mlx")
         %Run Plot
@@ -54,7 +53,7 @@ for idx=1:length(filename_array)
          %Run compare 
          %run("compare_with_zen.mlx")
         %Save workspace
-         save(sprintf('workspace/%s/X=%d temporal_myprogram_%s.mat',DATE,constant_X, filename))
+         save(sprintf('workspace/%s/temporal_%s.mat',DATE, filename))
         
         
 
