@@ -31,33 +31,30 @@ for idx=1:length(filename_array)
     clearvars -except filename_array DATE
     filename = filename_array(idx);
     sprintf("ファイル名は　%s　です", filename_array(idx))
-    %% 
-    
     %測定データをload
-    load(sprintf("measurement_conditions/%s/%s", DATE, filename))
+    load(sprintf("measurement_conditions/%s/%s.mat", DATE, filename))
+   
+    %%
     XT = imread(sprintf("input/%s/lsm/%s",DATE, filename));
     XT = double(XT);
-    
-
-    
-
+   
     %% 選択
     %①temporal(ksai=定数) ②spational(tau=定数)　③spatiotemporal
     choice = 1;
     %% 相関計算
     if choice == 1 %temporal
-        constant_X = 3  ;
+        constant_X = 60  ;
         TAU_MAX = 100; %TAUの個数 = PIXEL数へダウンサンプリング
         %ACF
         [TAU, COR] = temporal_correlation(XT, TIME_SCALE,TAU_MAX,constant_X);
         %Run Fitting
-         %run("fitting_temporal.mlx")
+         run("fitting_temporal.mlx")
         %Run Plot
-        %run("temporal_plots.mlx")
+         run("temporal_plots.mlx")
          %Run compare 
-        run("compare_with_zen.mlx")
+         %run("compare_with_zen.mlx")
         %Save workspace
-         %save(sprintf('workspace/%s/temporal_myprogram_%s.mat',DATE, filename))
+         save(sprintf('workspace/%s/X=%d temporal_myprogram_%s.mat',DATE,constant_X, filename))
         
         
 
