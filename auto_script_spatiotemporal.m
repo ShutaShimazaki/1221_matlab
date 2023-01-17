@@ -24,9 +24,12 @@ addpath(genpath(sprintf("measurement_conditions/%s", DATE)));
 %% loop回すべき全ファイルを取得
 files = dir(sprintf('measurement_conditions/%s/*.mat', DATE)); 
 filename_array = string({files.name});
+
+%% 以下for-loopで拡散係数を格納していく空構造体を生成
+diffusion_coefficients_struct = struct('sample_name',{}, 'diffusion_coefficient', {},  'diffusion_time', {}, 'w_radius', {});
 %% 各測定条件についてloop
 for idx=1:length(filename_array)
-    clearvars -except filename_array DATE idx
+    clearvars -except filename_array DATE idx diffusion_coefficients_struct
     filename = filename_array(idx);
     sprintf("ファイル名は　%s　です", filename_array(idx))
     %測定データをload
@@ -48,7 +51,10 @@ for idx=1:length(filename_array)
          run("fitting_temporal.mlx")
         %Run Plot
          run("temporal_plots.mlx")
-         %Run compare 
+        %Run Calculation for DiffusionCoefficient
+         w_radius = 0.151; %fcsのcalibrationより得る("calculate_D.mlx")
+         run("calculate_D.mlx")
+        %Run compare 
          %run("compare_with_zen.mlx")
         %Save workspace
          save(sprintf('workspace/%s/temporal_%s.mat',DATE, filename))
@@ -96,3 +102,6 @@ for idx=1:length(filename_array)
 %     save(sprintf('workspace/%s/%s.mat',DATE, filename))
 %     clearvars -except filename_array DATE
 end
+
+%% 拡散係数を格納した構造体を保存
+save(sprintf('workspace/%s/diffusion_coefficients.mat',DATE), 'diffusion_coefficients_struct');
