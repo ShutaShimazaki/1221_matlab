@@ -53,7 +53,7 @@ for idx=1:length(filename_array)
          run("temporal_plots.mlx")
         %Run Calculation for DiffusionCoefficient
          w_radius = 0.151; %fcs‚Ìcalibration‚æ‚è“¾‚é("calculate_D.mlx")
-         run("calculate_D.mlx")
+         run("calculate_diffusion_coefficient.mlx")
         %Run compare 
          %run("compare_with_zen.mlx")
         %Save workspace
