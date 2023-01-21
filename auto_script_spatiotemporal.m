@@ -3,8 +3,8 @@
 clear; 
 
 % 共通測定条件（要変更！！）
-DATE = "221209";
-SP = 7;
+DATE = "230112";
+SP = 10.5;
 
 %パスを通す
 addpath(genpath("function"));
@@ -26,7 +26,7 @@ files = dir(sprintf('measurement_conditions/%s/*.mat', DATE));
 filename_array = string({files.name});
 
 %% 以下for-loopで拡散係数を格納していく空構造体を生成
-diffusion_coefficients_struct = struct('sample_name',{}, 'diffusion_coefficient', {},  'diffusion_time', {}, 'w_radius', {});
+diffusion_coefficients_struct = struct('sample_name',{}, 'diffusion_coefficient', {},  'diffusion_time', {}, 'w_radius', {}, 'dwell_time', {},'time_scale', {},'image_size', {});
 %% 各測定条件についてloop
 for idx=1:length(filename_array)
     clearvars -except filename_array DATE idx diffusion_coefficients_struct
@@ -52,7 +52,7 @@ for idx=1:length(filename_array)
         %Run Plot
          run("temporal_plots.mlx")
         %Run Calculation for DiffusionCoefficient
-         w_radius = 0.151; %fcsのcalibrationより得る("calculate_D.mlx")
+         w_radius = 0.199; %[?]　fcsのcalibrationより得る("calculate_w0.mlx")
          run("calculate_diffusion_coefficient.mlx")
         %Run compare 
          %run("compare_with_zen.mlx")
