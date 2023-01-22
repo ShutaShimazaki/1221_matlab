@@ -10,19 +10,15 @@ for idx=1:length(filename_array)
     filename = filename_array(idx);
     
     %測定データをload
-    load(sprintf("workspace/%s/temporal_%s", DATE, filename),'modelfun', 'parms','TAU','sample_name')
+    load(sprintf("workspace/%s/temporal_%s", DATE, filename),'COR','TAU','sample_name')
     
     %規格化して１ < COR_normalized <２にする
-    COR = modelfun(parms,TAU);
     COR_normalized = COR-1;
     COR_normalized = (COR_normalized ./ COR_normalized(1)) + 1; 
     
-    %相関関数plot
+    %フィットしていない相関関数をplot
     txt = [sample_name];
     semilogx(TAU, COR_normalized,'-o', 'DisplayName',txt)
-    
-%     %凡例をつけていく
-%     legend(sample_name, 'Location','northeast');
     
     hold on;
 end
@@ -35,6 +31,8 @@ ylabel("Correlation Normalized", 'FontSize',14,'FontWeight','bold');
 
 hold off
 
+%% Legend (https://jp.mathworks.com/help/matlab/ref/matlab.graphics.illustration.legend-properties.html)
 lgd = legend;
-lgd.FontSize = 14;
-lgd.Location = 'northeast';
+% lgd.FontSize = 14;
+%lgd.Location = 'northoutside';
+lgd.Location = 'bestoutside';
