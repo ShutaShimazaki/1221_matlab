@@ -9,7 +9,7 @@ PIXEL_DWELL = 1.27 *10^(-6); %s
 PIXEL = 256;
 TIME_SCALE = 0.763 * 10^-3; %s              
 TIME_SERIES = 50000;
-IMAGE_SIZE = 5.63 %É m;
+IMAGE_SIZE = 5.63; %É m
 
 save(sprintf('measurement_conditions/%s/%s.mat',DATE, filename));
 %% G-TDP25
@@ -21,7 +21,7 @@ PIXEL_DWELL = 2.55 *10^(-6); %s
 PIXEL = 256;
 TIME_SCALE = 1.53 * 10^-3; %s      
 TIME_SERIES = 50000;
-IMAGE_SIZE = 5.63 %É m;
+IMAGE_SIZE = 5.63; %É m
 save(sprintf('measurement_conditions/%s/%s.mat',DATE, filename));
 
 %% G-TDP25
@@ -33,7 +33,7 @@ PIXEL_DWELL = 51.2 *10^(-6); %s
 PIXEL = 256;
 TIME_SCALE = 22.1 * 10^-3; %s      
 TIME_SERIES = 5720;
-IMAGE_SIZE = 11.25 %É m;
+IMAGE_SIZE = 11.25; %É m
 save(sprintf('measurement_conditions/%s/%s.mat',DATE, filename));
 
 %% HSP70-G.lsm
@@ -45,7 +45,7 @@ PIXEL_DWELL = 1.97 *10^(-6); %s
 PIXEL = 248;
 TIME_SCALE = 1.15 * 10^-3; %s      
 TIME_SERIES = 100000;
-IMAGE_SIZE = 5.63 %É m;
+IMAGE_SIZE = 5.63; %É m
 save(sprintf('measurement_conditions/%s/%s.mat',DATE, filename));
 
 %% 
@@ -57,7 +57,7 @@ PIXEL_DWELL = 6.61 *10^(-6); %s
 PIXEL = 248;
 TIME_SCALE = 3.85 * 10^-3; %s      
 TIME_SERIES = 53204;
-IMAGE_SIZE = 11.25 %É m;
+IMAGE_SIZE = 11.25; %É m
 save(sprintf('measurement_conditions/%s/%s.mat',DATE, filename));
 %% 
 sample_name = "HSP70-G 0.763ms";
@@ -68,7 +68,7 @@ PIXEL_DWELL = 1.27 *10^(-6); %s
 PIXEL = 256;
 TIME_SCALE = 0.763 * 10^-3; %s      
 TIME_SERIES = 50000;
-IMAGE_SIZE = 5.63 %É m;
+IMAGE_SIZE = 5.63; %É m
 save(sprintf('measurement_conditions/%s/%s.mat',DATE, filename));
 %%
 sample_name = "HSP70-G 3.07ms";
@@ -79,5 +79,5 @@ PIXEL_DWELL = 5.12 *10^(-6); %s
 PIXEL = 256;
 TIME_SCALE = 3.07 * 10^-3; %s      
 TIME_SERIES = 50000;
-IMAGE_SIZE = 5.63 %É m;
+IMAGE_SIZE = 5.63; %É m
 save(sprintf('measurement_conditions/%s/%s.mat',DATE, filename));

@@ -24,12 +24,18 @@ addpath(genpath(sprintf("measurement_conditions/%s", DATE)));
 %% loop回すべき全ファイルを取得
 files = dir(sprintf('measurement_conditions/%s/*.mat', DATE)); 
 filename_array = string({files.name});
+%% 重要なパラメータを保存する構造体を生成
+COMPONENT = 2; %モデル式の成分の数
+if COMPONENT == 1
+    important_parameters_struct = struct('sample_name',{}, 'diffusion_coefficient', {},  'diffusion_time', {}, 'w_radius', {}, 'dwell_time', {},'time_scale', {},'image_size', {});
+elseif COMPONENT == 2
+    disp("hello")
+    important_parameters_struct = struct('sample_name',{}, 'fast_diffusion_coefficient', {},  'fast_diffusion_time', {}, 'slow_diffusion_coefficient', {},  'slow_diffusion_time', {},'fast_fraction',{},'slow_fraction',{}, 'w_radius', {}, 'dwell_time', {},'time_scale', {},'image_size', {});    
+end
 
-%% 以下for-loopで拡散係数を格納していく空構造体を生成
-diffusion_coefficients_struct = struct('sample_name',{}, 'diffusion_coefficient', {},  'diffusion_time', {}, 'w_radius', {}, 'dwell_time', {},'time_scale', {},'image_size', {});
 %% 各測定条件についてloop
 for idx=1:length(filename_array)
-    clearvars -except filename_array DATE idx diffusion_coefficients_struct
+    clearvars -except filename_array DATE idx COMPONENT important_parameters_struct
     filename = filename_array(idx);
     sprintf("ファイル名は　%s　です", filename_array(idx))
     %測定データをload
@@ -103,5 +109,5 @@ for idx=1:length(filename_array)
 %     clearvars -except filename_array DATE
 end
 
-%% 拡散係数を格納した構造体を保存
-save(sprintf('workspace/%s/diffusion_coefficients.mat',DATE), 'diffusion_coefficients_struct');
+%% 拡散係数などの大事なパラメータを格納した構造体を保存
+save(sprintf('workspace/%s/important_parameters.mat',DATE), 'important_parameters_struct');
