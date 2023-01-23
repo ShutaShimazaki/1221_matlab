@@ -10,8 +10,11 @@ for idx=1:length(filename_array)
     filename = filename_array(idx);
     
     %測定データをload
-    load(sprintf("workspace/%s/temporal_%s", DATE, filename),'COR','TAU','sample_name')
+    %全部の位置
+    %load(sprintf("workspace/%s/temporal_%s", DATE, filename),'COR','TAU','sample_name')
     
+    %定点
+    load(sprintf("workspace/%s/X_temporal_%s", DATE, filename),'COR','TAU','sample_name')
     %規格化して１ < COR_normalized <２にする
     COR_normalized = COR-1;
     COR_normalized = (COR_normalized ./ COR_normalized(1)) + 1; 

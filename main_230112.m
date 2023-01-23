@@ -41,13 +41,18 @@ for idx=1:length(filename_array)
     %測定データをload
     load(sprintf("measurement_conditions/%s/%s", DATE, filename))
    
-    %%
+    %% 蛍光強度の取得
     XT = imread(sprintf("input/%s/lsm/%s",DATE, filename));
     XT = double(XT);
-   
+    
+    %光褪色に起因する、蛍光強度の減衰を補正
+    if isCorrected == "true"
+        run("correct_intensity.m")
+        XT = XT_corrected;
+    end
     %% 選択
     %①temporal(ksai=定数) ②spational(tau=定数)　③spatiotemporal
-    choice = 1;
+    choice = 5;
     %% 相関計算
     if choice == 1 %temporal
         NUMBER_TAU = 100; % tauの個数（＝上限）を設定
@@ -101,6 +106,23 @@ for idx=1:length(filename_array)
         semilogx(TAU,COR)
         xlabel('τ (s)');
         ylabel('Correlation(τ)');
+        
+    elseif choice == 5
+    constant_X = 3 ;
+    NUMBER_TAU = 100; % tauの個数（＝上限）を設定
+    %ACF
+    [TAU, COR] = constantX_temporal_correlation(XT, TIME_SCALE, constant_X, NUMBER_TAU);
+    %Run Fitting
+     run("fitting_temporal.mlx")
+    %Run Plot
+     run("temporal_plots.mlx")
+    %Run Calculation for DiffusionCoefficient
+     w_radius = 0.151; %[?]　fcsのcalibrationより得る("calculate_w0.mlx")
+     run("calculate_diffusion_coefficient.mlx")
+    %Run compare 
+     %run("compare_with_zen.mlx")
+    %Save workspace
+     save(sprintf('workspace/%s/X_temporal_%s.mat',DATE, filename))
 
 
     end

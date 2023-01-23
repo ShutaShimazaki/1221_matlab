@@ -30,5 +30,3 @@ average_F2 = mean(XT,'all')^2;
 COR = COR./average_F2;
 
 end
-
-
