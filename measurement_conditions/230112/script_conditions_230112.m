@@ -39,18 +39,18 @@ TIME_SERIES = 5720;
 IMAGE_SIZE = 11.25; %É m
 save(sprintf('measurement_conditions/%s/%s.mat',DATE, filename));
 
-%% HSP70-G.lsm
-sample_name = "HSP70-G 1.15ms";
-filename = "HSP70-G_01_line_1.15ms.lsm";
-isCorrected = "false";
-
-X_SCALE = 0.023; %É m
-PIXEL_DWELL = 1.97 *10^(-6); %s
-PIXEL = 248;
-TIME_SCALE = 1.15 * 10^-3; %s      
-TIME_SERIES = 100000;
-IMAGE_SIZE = 5.63; %É m
-save(sprintf('measurement_conditions/%s/%s.mat',DATE, filename));
+% %% HSP70-G.lsm
+% sample_name = "HSP70-G 1.15ms";
+% filename = "HSP70-G_01_line_1.15ms.lsm";
+% isCorrected = "false";
+% 
+% X_SCALE = 0.023; %É m
+% PIXEL_DWELL = 1.97 *10^(-6); %s
+% PIXEL = 248;
+% TIME_SCALE = 1.15 * 10^-3; %s      
+% TIME_SERIES = 100000;
+% IMAGE_SIZE = 5.63; %É m
+% save(sprintf('measurement_conditions/%s/%s.mat',DATE, filename));
 
 %% 
 sample_name = "HSP70-G 3.84ms";

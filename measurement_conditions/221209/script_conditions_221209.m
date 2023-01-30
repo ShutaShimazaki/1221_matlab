@@ -34,7 +34,7 @@ TIME_SERIES = 50000;
 save(sprintf('measurement_conditions/%s/%s.mat',DATE, filename));
 
 %% 100nm_SCROSE30%_pixelsize90nm_dwell26micro_total110s.lsm
-sample_name = "100nm SCROSE30%";
+sample_name = "100nm SUCROSE30%";
 filename = "100nm_SCROSE30%_pixelsize90nm_dwell26micro_total110s.lsm";
 
 X_SCALE = 0.088; %É m
@@ -45,7 +45,7 @@ TIME_SERIES = 30000;
 save(sprintf('measurement_conditions/%s/%s.mat',DATE, filename));
 
 %% 100nm_SCROSE40%_pixelsize90nm_dwell26micro_total110s.lsm
-sample_name = "100nm SCROSE40%";
+sample_name = "100nm SUCROSE40%";
 filename = "100nm_SCROSE40%_pixelsize90nm_dwell26micro_total110s.lsm";
 
 X_SCALE = 0.088; %É m
@@ -55,7 +55,7 @@ TIME_SCALE = 3.836 * 10^-3; %s
 TIME_SERIES = 30000;
 save(sprintf('measurement_conditions/%s/%s.mat',DATE, filename));
 %% 100nm_SCROSE50%_pixelsize90nm_dwell26micro_total110s.lsm
-sample_name = "100nm SCROSE50%";
+sample_name = "100nm SUCROSE50%";
 filename = "100nm_SCROSE50%_pixelsize90nm_dwell26micro_total110s.lsm";
 
 X_SCALE = 0.088; %É m
