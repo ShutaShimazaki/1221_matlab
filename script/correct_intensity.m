@@ -49,6 +49,7 @@ plot(1:TIME_SERIES, decay_multiexp)
 legend("もとの蛍光強度", "指数関数：　" + func2str(modelfun_bleaching));
 xlabel("スキャン回数", 'FontSize',14,'FontWeight','bold');
 ylabel("蛍光強度", 'FontSize',14,'FontWeight','bold');
+title(sprintf("蛍光強度の減衰 %s",sample_name));
 figurename = erase(filename, ".lsm");
 saveas(gcf, sprintf("output/%s/%s/decay_intensity %s.fig",DATE, sample_name,figurename))
 saveas(gcf, sprintf("output/%s/%s/decay_intensity %s.png",DATE, sample_name,figurename))
@@ -60,7 +61,7 @@ figure;
 plot(1:TIME_SERIES, XT_corrected_oneline);
 xlabel("時間", 'FontSize',14,'FontWeight','bold');
 ylabel("蛍光強度", 'FontSize',14,'FontWeight','bold');
-title("補正した蛍光強度");
+title(sprintf("補正した蛍光強度 %s",sample_name));
 saveas(gcf, sprintf("output/%s/%s/corrected_intensity %s.fig",DATE, sample_name,figurename))
 saveas(gcf, sprintf("output/%s/%s/corrected_intensity %s.png",DATE, sample_name,figurename))
 %% Plot
