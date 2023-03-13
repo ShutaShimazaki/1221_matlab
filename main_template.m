@@ -4,13 +4,13 @@
 %%%%%%%%%%%%%%
 %% ワークスペースのクリア
 clear; 
-
 %% 要変更！！%%%
 DATE = "230112"; %yymmdd
 SP = 10.5; %structual parameter (校正サンプルを測定しZENで解析して得た値を入力）
 w_radius = 0.199; %観察体積の半径を入力 （formula > calculate_w0.mlxファイルを実行すると計算してくれる）
 COMPONENT = 2; %フィットモデル式の拡散成分の数（１か２を選択。詳細は"script>fitting>fitting_temporal.mlx"を参照。）
-
+choice = 1; %計算したいACFの種類を選択
+% ①時間相関(デフォルト。各ピクセルの時間相関の平均。) ②時間相関(任意の１ピクセル）③時空間相関　
 %% パスを通す
 addpath(genpath("function"));
 addpath(genpath("script"));
@@ -38,21 +38,21 @@ end
 
 %% 各測定条件についてloop
 for idx=1:length(filename_array)
-    clearvars -except filename_array DATE idx COMPONENT important_parameters_struct
+    clearvars -except filename_array DATE idx COMPONENT important_parameters_struct choice　w_radius
     filename = filename_array(idx);
     sprintf("ファイル名は　%s　です", filename_array(idx))
     %測定データをload
     load(sprintf("measurement_conditions/%s/%s", DATE, filename))
    
-    %%
+    %% LSMファイルをインポート
     XT = imread(sprintf("input/%s/lsm/%s",DATE, filename));
     XT = double(XT);
-   
-    %% 選択
-    %①temporal(ksai=定数) ②spational(tau=定数)　③spatiotemporal
-    choice = 1;
+    
+    %% 光褪色による蛍光強度の減衰を補正する
+    run("correct_intensity.m")
+    XT = XT_corrected;
     %% 相関計算
-    if choice == 1 %temporal
+    if choice == 1 %%各ピクセルにおける時間相関の平均を計算する
         NUMBER_TAU = 100; % tauの個数（＝上限）を設定
         %ACF
         [TAU, COR] = temporal_correlation(XT, TIME_SCALE, NUMBER_TAU);
@@ -61,52 +61,14 @@ for idx=1:length(filename_array)
         %Run Plot
          run("temporal_plots.mlx")
         %Run Calculation for DiffusionCoefficient
-         w_radius = 0.199; %[?]　fcsのcalibrationより得る("calculate_w0.mlx")
          run("calculate_diffusion_coefficient.mlx")
         %Run compare 
          %run("compare_with_zen.mlx")
         %Save workspace
          save(sprintf('workspace/%s/temporal_%s.mat',DATE, filename))
         
-        
-
-    elseif choice == 2
-        constant_T = 2;
-        %ACF
-        [KSAI, COR] = spatial_correlation(XT, X_SCALE, constant_T);
-        %Fitting
-        %Plot
-        plot(KSAI,COR)
-        %semilogx(TAU,COR)
-        xlabel('ξ (μm)','FontSize',14,'FontWeight','bold');
-        ylabel('Correlation(ξ)','FontSize',14,'FontWeight','bold');
-
-    elseif choice == 3
-        %ACF
-        [KSAI, TAU, COR] = spatiotemporal_correlation(XT,TIME_SCALE,X_SCALE);
-        COR(isnan(COR)) = 0; %NaNを0に置換する
-       %% 
-
-        %Run fitting
-        SP = 7;
-        run("fitting_spatiotemporal.mlx")
-
-        %Run plot
-        run("spatiotemporal_plots.mlx")
-        
-    elseif choice == 4
-        constant_X = 3  ;
-        %ACF
-        [TAU, COR] = xcorr_temporal_correlation(XT, TIME_SCALE, constant_X);
-        %Fitting
-        run("fitting_temporal.mlx")
-        %Plot
-        semilogx(TAU,COR)
-        xlabel('τ (s)');
-        ylabel('Correlation(τ)');
-
-    elseif choice == 5
-        constant_X = 3 ;
+      elseif choice == 2 %定点X（＝1ピクセル)を選択。このピクセルだけの時間相関を計算する
+        constant_X = 3 ; 
         NUMBER_TAU = 100; % tauの個数（＝上限）を設定
         %ACF
         [TAU, COR] = constantX_temporal_correlation(XT, TIME_SCALE, constant_X, NUMBER_TAU);
@@ -115,16 +77,23 @@ for idx=1:length(filename_array)
         %Run Plot
          run("temporal_plots.mlx")
         %Run Calculation for DiffusionCoefficient
-         w_radius = 0.199; %[?]　fcsのcalibrationより得る("calculate_w0.mlx")
          run("calculate_diffusion_coefficient.mlx")
         %Run compare 
          %run("compare_with_zen.mlx")
         %Save workspace
          save(sprintf('workspace/%s/X_temporal_%s.mat',DATE, filename))
+         
+    elseif choice == 3 %時空間相関
+        %ACF
+        [KSAI, TAU, COR] = spatiotemporal_correlation(XT,TIME_SCALE,X_SCALE);
+        COR(isnan(COR)) = 0; %NaNを0に置換する
+        %Run fitting
+        run("fitting_spatiotemporal.mlx")
+        %Run plot
+        run("spatiotemporal_plots.mlx")
+        %Save workspace
+         save(sprintf('workspace/%s/spatiotemporal_%s.mat',DATE, filename))
     end
-%     %% save result on workspace file
-%     save(sprintf('workspace/%s/%s.mat',DATE, filename))
-%     clearvars -except filename_array DATE
 end
 
 %% 拡散係数などの大事なパラメータを格納した構造体を保存
