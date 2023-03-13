@@ -47,11 +47,7 @@ for idx=1:length(filename_array)
     
     run("correct_intensity.m")
     XT = XT_corrected;
-%     %光褪色に起因する、蛍光強度の減衰を補正
-%     if isCorrected == "true"
-%         run("correct_intensity.m")
-%         XT = XT_corrected;
-%     end
+
     %% 選択
     %①temporal(ksai=定数) ②spational(tau=定数)　③spatiotemporal
     choice = 1;

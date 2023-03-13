@@ -1,19 +1,24 @@
-%% インポート
-% ワークスペースのクリア
+%%%%%%% mainファイル概要 %%%%%%%
+% ACF計算、フィッティング、プロットを自動で行います
+% ACFプロット、各変数を保存したワークスペース、重要なパラメータ
+%%%%%%%%%%%%%%
+%% ワークスペースのクリア
 clear; 
 
-% 共通測定条件（要変更！！）
-DATE = "230112";
-SP = 10.5;
+%% 要変更！！%%%
+DATE = "230112"; %yymmdd
+SP = 10.5; %structual parameter (校正サンプルを測定しZENで解析して得た値を入力）
+w_radius = 0.199; %観察体積の半径を入力 （formula > calculate_w0.mlxファイルを実行すると計算してくれる）
+COMPONENT = 2; %フィットモデル式の拡散成分の数（１か２を選択。詳細は"script>fitting>fitting_temporal.mlx"を参照。）
 
-%パスを通す
+%% パスを通す
 addpath(genpath("function"));
 addpath(genpath("script"));
 addpath(genpath("output"));
 addpath(genpath(sprintf("input/%s", DATE)));
 addpath(genpath(sprintf("measurement_conditions/%s", DATE)));
 
-%% mkdir (作成されるべきdirectoryが未だ存在しないならば、作成する）
+%% mkdir (作成されるべきdirectoryが未だ存在しないならば、自動作成してくれる）
     for folder_name = [sprintf("output/%s", DATE)  sprintf("workspace/%s", DATE)]
         if not(exist(folder_name,'dir'))
             mkdir(folder_name)
@@ -24,12 +29,10 @@ addpath(genpath(sprintf("measurement_conditions/%s", DATE)));
 %% loop回すべき全ファイルを取得
 files = dir(sprintf('measurement_conditions/%s/*.mat', DATE)); 
 filename_array = string({files.name});
-%% 重要なパラメータを保存する構造体を生成
-COMPONENT = 2; %モデル式の成分の数
+%% 重要なパラメータ(拡散係数など）を保存する空構造体を生成
 if COMPONENT == 1
     important_parameters_struct = struct('sample_name',{}, 'diffusion_coefficient', {},  'diffusion_time', {}, 'w_radius', {}, 'dwell_time', {},'time_scale', {},'image_size', {});
 elseif COMPONENT == 2
-    disp("hello")
     important_parameters_struct = struct('sample_name',{}, 'fast_diffusion_coefficient', {},  'fast_diffusion_time', {}, 'slow_diffusion_coefficient', {},  'slow_diffusion_time', {},'fast_fraction',{},'slow_fraction',{}, 'w_radius', {}, 'dwell_time', {},'time_scale', {},'image_size', {});    
 end
 
@@ -102,7 +105,22 @@ for idx=1:length(filename_array)
         xlabel('τ (s)');
         ylabel('Correlation(τ)');
 
-
+    elseif choice == 5
+        constant_X = 3 ;
+        NUMBER_TAU = 100; % tauの個数（＝上限）を設定
+        %ACF
+        [TAU, COR] = constantX_temporal_correlation(XT, TIME_SCALE, constant_X, NUMBER_TAU);
+        %Run Fitting
+         run("fitting_temporal.mlx")
+        %Run Plot
+         run("temporal_plots.mlx")
+        %Run Calculation for DiffusionCoefficient
+         w_radius = 0.199; %[?]　fcsのcalibrationより得る("calculate_w0.mlx")
+         run("calculate_diffusion_coefficient.mlx")
+        %Run compare 
+         %run("compare_with_zen.mlx")
+        %Save workspace
+         save(sprintf('workspace/%s/X_temporal_%s.mat',DATE, filename))
     end
 %     %% save result on workspace file
 %     save(sprintf('workspace/%s/%s.mat',DATE, filename))
