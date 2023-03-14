@@ -16,7 +16,8 @@
 (—áFinput > 230112 > lsm > G-TDP25_01_line1_0.762ms.lsm, G-TDP25_01_line2_1.53ms.lsmEE)
 
 ### ‡A‘ª’èğŒ‚Ì“ü—Í<br>
-+ measurement_conditions > DATE > script_conditions_DATE.m@‚Æ‚¢‚¤ŠK‘w\‘¢‚É‚·‚é<br>
+ "script_conditions_DATE.m"iƒeƒ“ƒvƒŒ[ƒgƒtƒ@ƒCƒ‹j‚ğ•¡»‚·‚é<br>
++measurement_conditions > DATE > script_conditions_DATE.m@‚Æ‚¢‚¤ŠK‘w\‘¢‚É‚·‚é<br>
 (—áFmeasurement_conditions > 230112 > script_conditions_230112.m)
 
 + "script_conditions_DATE.m"‚ğÀŒ±ğŒ‚É‰‚¶‚Ä•ÏX<br>
@@ -24,8 +25,9 @@ filename: ã‹L‡@‚É‚¨‚¢‚Äinput>DATE>lsmƒtƒHƒ‹ƒ_“à‚É‰Á‚¦‚½lsmƒtƒ@ƒCƒ‹‚Ì–¼‘O‚É‚·‚é
 i—áFfilename = G-TDP25_01_line1_0.762ms.lsm, filename = G-TDP25_01_line2_1.53ms.lsm)
 
 ### ‡Bmainƒtƒ@ƒCƒ‹‚ğ“®‚©‚·<br>
-1. ƒXƒNƒŠƒvƒgã•”‚Ìw—v•ÏXIIxƒZƒNƒVƒ‡ƒ“‚ğ“K‹X‚·‚é<br>
-2. Àsi—Î‚ÌOŠpƒ{ƒ^ƒ“‚ğ‰Ÿ‚·j
+1. "main_template.m"‚ğ•¡»‚µ‚ÄA•Ê‚Ìmainƒtƒ@ƒCƒ‹‚ğ‚Â‚­‚é
+2. ƒXƒNƒŠƒvƒgã•”‚Ìw—v•ÏXIIxƒZƒNƒVƒ‡ƒ“‚ğ“K‹X‚·‚é<br>
+3. Àsi—Î‚ÌOŠpƒ{ƒ^ƒ“‚ğ‰Ÿ‚·j
 
 **Às‚µ‚Ä“¾‚ç‚ê‚é‚à‚Ì‚Æ•Û‘¶êŠ**<br>
 šƒvƒƒbƒg‚ÍpngŒ`®, figŒ`®(matlab‚ÅŠJ‚¯‚é)‚Ì—¼•û‚Å•Û‘¶‚³‚ê‚Ü‚·š<br>
@@ -37,7 +39,7 @@ filename: ã‹L‡@‚É‚¨‚¢‚Äinput>DATE>lsmƒtƒHƒ‹ƒ_“à‚É‰Á‚¦‚½lsmƒtƒ@ƒCƒ‹‚Ì–¼‘O‚É‚·‚é
 ## ƒfƒ‚
 
 ## ’ˆÓ
-ƒGƒ‰[ƒƒbƒZ[ƒW‚Æ‰ğŒˆô<br>
+###ƒGƒ‰[ƒƒbƒZ[ƒW‚Æ‰ğŒˆô<br>
 ‡@fitting‚Å‚ÌƒGƒ‰[<br>
 ‰Šú’l‚ğ•Ï‚¦‚é‚Æ‚¤‚Ü‚­‚¢‚­
 
@@ -45,14 +47,24 @@ filename: ã‹L‡@‚É‚¨‚¢‚Äinput>DATE>lsmƒtƒHƒ‹ƒ_“à‚É‰Á‚¦‚½lsmƒtƒ@ƒCƒ‹‚Ì–¼‘O‚É‚·‚é
 Escript_conditionsƒtƒ@ƒCƒ‹‚É“ü—Í‚µ‚½"filename"‚ªŠÔˆá‚Á‚Ä‚¢‚é‰Â”\«‚ª‚ ‚è‚Ü‚·B<br>
 ¨inputƒtƒHƒ‹ƒ_‚É‰Á‚¦‚½lsmƒtƒ@ƒCƒ‹–¼‚Æˆê’v‚³‚¹‚é‚æ‚¤‚É‚µ‚Ä‚­‚¾‚³‚¢B‚»‚µ‚ÄŒë‚Ü‚Á‚½–¼‘O‚ğ‚à‚Âƒtƒ@ƒCƒ‹‚ªmeasurement_conditionsƒtƒHƒ‹ƒ_‚É‘¶İ‚µ‚Ä‚¢‚é‰Â”\«‚ª‚ ‚è‚Ü‚·‚Ì‚Åíœ‚µ‚Ä‚­‚¾‚³‚¢B
 
+###ê‡‚É‰‚¶‚Ä•ÏX
++ ƒÑ‚ÌŠÔŠuİ’èF"temporal_correlation.m" ‚ÌTAU_BETWEEN‚Æ‚¢‚¤•Ï”‚Å’è‹`<br>
++ ƒÑ‚ÌŒÂ”ãŒÀF"main.m"‚ÌNUMBER_TAU‚Æ‚¢‚¤•Ï”‚Å’è‹`<br>
+
 ## ˜A—
 mail to: zakishima.39@icloud.com
 
-## Todo
-ƒÑ‚ÌŠÔŠuİ’è
-ƒÑ‚ÌŒÂ”ãŒÀ
-‘Schoice‚Ì‹““®‚ğŠm”F(choice1:OK, 
-‹““®Šm”FŒãAƒfƒ‚“®‰æB‰e
+## ‚»‚Ì‘¼@g‚Á‚Ä‚¢‚½‚à‚Ì ![](images_onREADME/)
+###ŠgUŒW”‚Ìƒvƒƒbƒg
+
+1. workspaceƒtƒ@ƒCƒ‹‚Ìimportant_parameters‚Æ‚¢‚¤•Ï”‚Ì’†g‚ğ‚İ‚é
+![important_parameters](images_onREADME/important_parameters.png)
 
 ŠgUŒW”ƒvƒ‚Á‚ÆƒGƒNƒZƒ‹ƒtƒ@ƒCƒ‹
-overlay_acf
+
+###‘ŠŠÖŠÖ”‚ğd‚Ë‚é<br>
+![—áF‘ŠŠÖŠÖ”‚Ìoverlay](images_onREADME/100nm SUCROSE50% etc.png)
+![—áF‘ŠŠÖŠÖ”‚Ìoverlay](images_onREADME/200nm etc.png)<br>
+•û–@Fscript > plot > overlay_diffusionCoefficient.m
+
+‹““®Šm”FŒãAƒfƒ‚“®‰æB‰e

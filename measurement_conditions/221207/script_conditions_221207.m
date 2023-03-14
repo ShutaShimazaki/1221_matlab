@@ -1,7 +1,7 @@
 %script_spatiotemporal.mÇ©ÇÁåƒÇ—èoÇ∑ÅB
 %SP = 19.25;
 %% 20nm_pixelsize90nm_dwell5micro_total76s.lsm
-beads_size = "20nm";
+sample_name = "20nm";
 filename = "20nm_pixelsize90nm_dwell5micro_total76s.lsm";
 
 X_SCALE = 0.088; %É m
@@ -11,7 +11,7 @@ TIME_SCALE = 0.763 * 10^-3; %s
 TIME_SERIES = 100000;
 save(sprintf('measurement_conditions/%s/%s.mat',DATE, filename));
 %% 100nm_pixelsize90nm_dwell13micro_total96s.lsm
-beads_size = "100nm";
+sample_name = "100nm";
 filename = "100nm_pixelsize90nm_dwell13micro_total96s.lsm";
 
 X_SCALE = 0.088; %É m
@@ -22,7 +22,7 @@ TIME_SERIES = 50000;
 save(sprintf('measurement_conditions/%s/%s.mat',DATE, filename));
 
 %% 200nm_pixelsize90nm_dwell13micro_total96s.lsm
-beads_size = "200nm";
+sample_name = "200nm";
 filename = "200nm_pixelsize90nm_dwell13micro_total96s.lsm";
 
 X_SCALE = 0.088; %É m
@@ -33,7 +33,7 @@ TIME_SERIES = 50000;
 save(sprintf('measurement_conditions/%s/%s.mat',DATE, filename));
 
 %% 100nm_SCROSE30%_pixelsize90nm_dwell26micro_total110s.lsm
-beads_size = "100nm";
+sample_name = "100nm scrose30%";
 filename = "100nm_SCROSE30%_pixelsize90nm_dwell26micro_total110s.lsm";
 
 X_SCALE = 0.088; %É m
@@ -44,7 +44,7 @@ TIME_SERIES = 30000;
 save(sprintf('measurement_conditions/%s/%s.mat',DATE, filename));
 
 %% 100nm_SCROSE50%_pixelsize90nm_dwell26micro_total110s.lsm
-beads_size = "100nm";
+sample_name = "100nm SCROSE50%";
 filename = "100nm_SCROSE50%_pixelsize90nm_dwell26micro_total110s.lsm";
 
 X_SCALE = 0.088; %É m

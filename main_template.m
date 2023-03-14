@@ -5,7 +5,7 @@
 %% ワークスペースのクリア
 clear; 
 %% 要変更！！%%%
-DATE = "230112test"; %yymmdd
+DATE = "230112"; %yymmdd
 SP = 10.5; %structual parameter (校正サンプルを測定しZENで解析して得た値を入力）
 w_radius = 0.199; %観察体積の半径を入力 （formula > calculate_w0.mlxファイルを実行すると計算してくれる）
 COMPONENT = 2; %フィットモデル式の拡散成分の数（１か２を選択。詳細は"script>fitting>fitting_temporal.mlx"を参照。）

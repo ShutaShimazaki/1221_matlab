@@ -4,7 +4,7 @@ TIME_SERIES = size(XT,1); %1000
 PIXEL = size(XT,2); %32
 %% 事前割り当て
 TAU = zeros(1,NUMBER_TAU);
-TAU_BETWEEN = round(logspace(0, 3, NUMBER_TAU)); %対数的に等間隔なNUMBER_TAU個の点を生成。
+TAU_BETWEEN = round(logspace(0, 3, NUMBER_TAU)); %τの間隔を設定：対数的に等間隔なNUMBER_TAU個の点を生成。
 COR = zeros(1,NUMBER_TAU); % （τの個数）
 %% ACF (multiple tau)
 for tau = 1: NUMBER_TAU
