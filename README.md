@@ -25,23 +25,25 @@ filename: ã‹L‡@‚É‚¨‚¢‚Äinput>DATE>lsmƒtƒHƒ‹ƒ_“à‚É‰Á‚¦‚½lsmƒtƒ@ƒCƒ‹‚Ì–¼‘O‚É‚·‚é
 
 ### ‡Bmainƒtƒ@ƒCƒ‹‚ğ“®‚©‚·<br>
 1. ƒXƒNƒŠƒvƒgã•”‚Ìw—v•ÏXIIxƒZƒNƒVƒ‡ƒ“‚ğ“K‹X‚·‚é<br>
-2. Àsi—Î‚Ì?‚ğ‰Ÿ‚·j
+2. Àsi—Î‚ÌOŠpƒ{ƒ^ƒ“‚ğ‰Ÿ‚·j
 
 **Às‚µ‚Ä“¾‚ç‚ê‚é‚à‚Ì‚Æ•Û‘¶êŠ**<br>
 šƒvƒƒbƒg‚ÍpngŒ`®, figŒ`®(matlab‚ÅŠJ‚¯‚é)‚Ì—¼•û‚Å•Û‘¶‚³‚ê‚Ü‚·š<br>
-+ •â³‘O‚Æ•â³Œã‚ÌŒuŒõ‹­“xƒvƒƒbƒg¨"output/DATE/sample_name"ƒtƒHƒ‹ƒ_“à<br>
-+ ACFƒvƒƒbƒg¨@"output/DATE/sample_name"ƒtƒHƒ‹ƒ_“à<br>
-+ ŠgUŒW”AŠgUŠÔ‚È‚Ç‚Ìƒpƒ‰ƒ[ƒ^¨"workspace/DATE/important_parameters.mat"<br>
-+ ƒ[ƒNƒXƒy[ƒXiƒvƒƒOƒ‰ƒ€Às‚Ì•Ï”)¨"workspace/DATE/ACF‚Ìí—Ş_filename.mat"<br>
++ •â³‘O‚Æ•â³Œã‚ÌŒuŒõ‹­“xƒvƒƒbƒg<br>¨"output/DATE/sample_name"ƒtƒHƒ‹ƒ_“à<br>
++ ACFƒvƒƒbƒg<br>¨"output/DATE/sample_name"ƒtƒHƒ‹ƒ_“à<br>
++ ŠgUŒW”AŠgUŠÔ‚È‚Ç‚Ìƒpƒ‰ƒ[ƒ^<br>¨"workspace/DATE/important_parameters.mat"<br>
++ ƒ[ƒNƒXƒy[ƒXiƒvƒƒOƒ‰ƒ€Às‚Ì•Ï”)<br>¨"workspace/DATE/ACF‚Ìí—Ş_filename.mat"<br>
 
 ## ƒfƒ‚
 
 ## ’ˆÓ
-ƒGƒ‰[Œ´ˆö
-‡@fitting‚Ì‰Šú’l
+ƒGƒ‰[ƒƒbƒZ[ƒW‚Æ‰ğŒˆô<br>
+‡@fitting‚Å‚ÌƒGƒ‰[<br>
 ‰Šú’l‚ğ•Ï‚¦‚é‚Æ‚¤‚Ü‚­‚¢‚­
 
-‡A
+‡Aƒtƒ@ƒCƒ‹‚âƒtƒHƒ‹ƒ_‚ª‘¶İ‚µ‚È‚¢‚Æ‚¢‚¤ƒGƒ‰[ƒƒbƒZ[ƒW<br>
+Escript_conditionsƒtƒ@ƒCƒ‹‚É“ü—Í‚µ‚½"filename"‚ªŠÔˆá‚Á‚Ä‚¢‚é‰Â”\«‚ª‚ ‚è‚Ü‚·B<br>
+¨inputƒtƒHƒ‹ƒ_‚É‰Á‚¦‚½lsmƒtƒ@ƒCƒ‹–¼‚Æˆê’v‚³‚¹‚é‚æ‚¤‚É‚µ‚Ä‚­‚¾‚³‚¢B‚»‚µ‚ÄŒë‚Ü‚Á‚½–¼‘O‚ğ‚à‚Âƒtƒ@ƒCƒ‹‚ªmeasurement_conditionsƒtƒHƒ‹ƒ_‚É‘¶İ‚µ‚Ä‚¢‚é‰Â”\«‚ª‚ ‚è‚Ü‚·‚Ì‚Åíœ‚µ‚Ä‚­‚¾‚³‚¢B
 
 ## ˜A—
 mail to: zakishima.39@icloud.com
@@ -49,4 +51,8 @@ mail to: zakishima.39@icloud.com
 ## Todo
 ƒÑ‚ÌŠÔŠuİ’è
 ƒÑ‚ÌŒÂ”ãŒÀ
-‘Schoice‚Ì‹““®‚ğŠm”F
+‘Schoice‚Ì‹““®‚ğŠm”F(choice1:OK, 
+‹““®Šm”FŒãAƒfƒ‚“®‰æB‰e
+
+ŠgUŒW”ƒvƒ‚Á‚ÆƒGƒNƒZƒ‹ƒtƒ@ƒCƒ‹
+overlay_acf

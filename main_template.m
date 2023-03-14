@@ -18,12 +18,6 @@ addpath(genpath("output"));
 addpath(genpath(sprintf("input/%s", DATE)));
 addpath(genpath(sprintf("measurement_conditions/%s", DATE)));
 
-%% mkdir (作成されるべきdirectoryが未だ存在しないならば、自動作成してくれる）
-    for folder_name = [sprintf("output/%s", DATE)  sprintf("workspace/%s", DATE)]
-        if not(exist(folder_name,'dir'))
-            mkdir(folder_name)
-        end
-    end
 %% 最新のmeasurement_conditionsを反映
     run(sprintf("script_conditions_%s.m", DATE));
 %% loop回すべき全ファイルを取得
@@ -36,6 +30,12 @@ elseif COMPONENT == 2
     important_parameters_struct = struct('sample_name',{}, 'fast_diffusion_coefficient', {},  'fast_diffusion_time', {}, 'slow_diffusion_coefficient', {},  'slow_diffusion_time', {},'fast_fraction',{},'slow_fraction',{}, 'w_radius', {}, 'dwell_time', {},'time_scale', {},'image_size', {});    
 end
 
+%% mkdir (作成されるべきdirectoryが未だ存在しないならば、自動作成してくれる）
+for folder_name = [sprintf("output/%s", DATE)  sprintf("workspace/%s", DATE) sprintf("output/%s/%s", DATE, sample_name) sprintf("output/%s/%s", DATE, sample_name)]
+    if not(exist(folder_name,'dir'))
+        mkdir(folder_name)
+    end
+end
 %% 各測定条件についてloop
 for idx=1:length(filename_array)
     clearvars -except filename_array DATE idx COMPONENT important_parameters_struct choice　w_radius
@@ -98,3 +98,4 @@ end
 
 %% 拡散係数などの大事なパラメータを格納した構造体を保存
 save(sprintf('workspace/%s/important_parameters.mat',DATE), 'important_parameters_struct');
+disp("---- Done! ----")

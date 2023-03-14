@@ -3,7 +3,6 @@
 %% G-TDP25
 sample_name = "GFP-TDP25 0.763ms";
 filename = "G-TDP25_01_line1_0.762ms.lsm";
-isCorrected = "false";
 
 X_SCALE = 0.022; %É m
 PIXEL_DWELL = 1.27 *10^(-6); %s
@@ -16,7 +15,6 @@ save(sprintf('measurement_conditions/%s/%s.mat',DATE, filename));
 %% G-TDP25
 sample_name = "GFP-TDP25 1.53ms";
 filename = "G-TDP25_01_line2_1.53ms.lsm";
-isCorrected = "false";
 
 X_SCALE = 0.022; %É m
 PIXEL_DWELL = 2.55 *10^(-6); %s

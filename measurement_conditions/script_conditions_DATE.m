@@ -6,7 +6,7 @@
  %★★大切：filenameはinput>DATE>lsmフォルダ内に加えたlsmファイルの名前にする。★★
  
 %%%
-%% SAMPLE1
+%% G-TDP25
 %測定条件入力
 sample_name = "GFP-TDP25 0.763ms"; %sample_name: 任意 (作成されるプロット図のtitleになります）
 filename = "G-TDP25_01_line1_0.762ms.lsm"; %input>DATE>lsmフォルダ内に加えたlsmファイルの名前にする。
@@ -21,15 +21,15 @@ IMAGE_SIZE = 5.63; %μm
 %ワークスペースファイルの生成
 save(sprintf('measurement_conditions/%s/%s.mat',DATE, filename));
 
-%% SAMPLE2
+%% G-TDP25
 %測定条件入力
-sample_name = "GFP-TDP25 0.763ms";
-filename = "G-TDP25_01_line1_0.762ms.lsm";
+sample_name = "GFP-TDP25 1.53ms";
+filename = "G-TDP25_01_line2_1.53ms.lsm";
 
 X_SCALE = 0.022; %μm
-PIXEL_DWELL = 1.27 *10^(-6); %s
+PIXEL_DWELL = 2.55 *10^(-6); %s
 PIXEL = 256;
-TIME_SCALE = 0.763 * 10^-3; %s              
+TIME_SCALE = 1.53 * 10^-3; %s      
 TIME_SERIES = 50000;
 IMAGE_SIZE = 5.63; %μm
 
