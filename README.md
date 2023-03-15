@@ -39,7 +39,7 @@ filename: ã‹L‡@‚É‚¨‚¢‚Äinput>DATE>lsmƒtƒHƒ‹ƒ_“à‚É‰Á‚¦‚½lsmƒtƒ@ƒCƒ‹‚Ì–¼‘O‚É‚·‚é
 ## ƒfƒ‚
 
 ## ’ˆÓ
-###ƒGƒ‰[ƒƒbƒZ[ƒW‚Æ‰ğŒˆô<br>
+### ƒGƒ‰[ƒƒbƒZ[ƒW‚Æ‰ğŒˆô<br>
 ‡@fitting‚Å‚ÌƒGƒ‰[<br>
 ‰Šú’l‚ğ•Ï‚¦‚é‚Æ‚¤‚Ü‚­‚¢‚­
 
@@ -47,7 +47,7 @@ filename: ã‹L‡@‚É‚¨‚¢‚Äinput>DATE>lsmƒtƒHƒ‹ƒ_“à‚É‰Á‚¦‚½lsmƒtƒ@ƒCƒ‹‚Ì–¼‘O‚É‚·‚é
 Escript_conditionsƒtƒ@ƒCƒ‹‚É“ü—Í‚µ‚½"filename"‚ªŠÔˆá‚Á‚Ä‚¢‚é‰Â”\«‚ª‚ ‚è‚Ü‚·B<br>
 ¨inputƒtƒHƒ‹ƒ_‚É‰Á‚¦‚½lsmƒtƒ@ƒCƒ‹–¼‚Æˆê’v‚³‚¹‚é‚æ‚¤‚É‚µ‚Ä‚­‚¾‚³‚¢B‚»‚µ‚ÄŒë‚Ü‚Á‚½–¼‘O‚ğ‚à‚Âƒtƒ@ƒCƒ‹‚ªmeasurement_conditionsƒtƒHƒ‹ƒ_‚É‘¶İ‚µ‚Ä‚¢‚é‰Â”\«‚ª‚ ‚è‚Ü‚·‚Ì‚Åíœ‚µ‚Ä‚­‚¾‚³‚¢B
 
-###ê‡‚É‰‚¶‚Ä•ÏX
+### ê‡‚É‰‚¶‚Ä•ÏX
 + ƒÑ‚ÌŠÔŠuİ’èF"temporal_correlation.m" ‚ÌTAU_BETWEEN‚Æ‚¢‚¤•Ï”‚Å’è‹`<br>
 + ƒÑ‚ÌŒÂ”ãŒÀF"main.m"‚ÌNUMBER_TAU‚Æ‚¢‚¤•Ï”‚Å’è‹`<br>
 
@@ -55,17 +55,20 @@ filename: ã‹L‡@‚É‚¨‚¢‚Äinput>DATE>lsmƒtƒHƒ‹ƒ_“à‚É‰Á‚¦‚½lsmƒtƒ@ƒCƒ‹‚Ì–¼‘O‚É‚·‚é
 mail to: zakishima.39@icloud.com
 
 ## ‚»‚Ì‘¼@g‚Á‚Ä‚¢‚½‚à‚Ì ![](images_onREADME/)
-###ŠgUŒW”‚Ìƒvƒƒbƒg
-![ex](images_onREADME/ƒr[ƒYŒa‚ÆŠgUŒW”.png)
+### ŠgUŒW”‚Ìƒvƒƒbƒg
+**Š®¬—á**<br>
+![ex](images_onREADME/ƒr[ƒYŒa‚ÆŠgUŒW”.png)<br>
+**•û–@**
 1. workspaceƒtƒ@ƒCƒ‹‚Ìimportant_parameters‚Æ‚¢‚¤•Ï”‚Ì’†g‚ğ‚İ‚é<br>
 ![important_parameters](images_onREADME/important_parameters.png)<br>
 2. ˆÈ‰º‚Ìƒtƒ@ƒCƒ‹‚Ö“\‚è•t‚¯‚é<br>
 banana > shimazaki > ‰ğÍ > "ŠgUŒW”ƒvƒƒbƒgƒeƒ“ƒvƒŒ[ƒg"
 
-###‘ŠŠÖŠÖ”‚ğd‚Ë‚é<br>
-![ex1](images_onREADME/100nm_SUCROSE50%_etc.png)
+### •¡”‚Ì‘ŠŠÖŠÖ”ƒvƒƒbƒg<br>
+**Š®¬—á**<br>
 ![ex2](images_onREADME/200nm_etc.png)<br>
 
-•û–@Fscript > plot > overlay_diffusionCoefficient.m‚ğg—p
+**•û–@** script > plot > overlay_diffusionCoefficient.m‚ğg—p<br>
+‚P‚Â‚P‚Â‚Ì‘ŠŠÖŠÖ”‚ğc²1`‚Q‚É‹KŠi‰»‚µAd‚Ë‚é‚±‚Æ‚ª‚Å‚«‚Ü‚·
 ‹““®Šm”FŒãAƒfƒ‚“®‰æB‰e
 ÅŒãbanana>MATLAB‚ğÅV‚Ìó‘Ô‚Ö
