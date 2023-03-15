@@ -63,8 +63,8 @@ mail to: zakishima.39@icloud.com
 拡散係数プロっとエクセルファイル
 
 ###相関関数を重ねる<br>
-![例：相関関数のoverlay](images_onREADME/100nm SUCROSE50% etc.png)
-![例：相関関数のoverlay](images_onREADME/200nm etc.png)<br>
+![例：相関関数のoverlay](images_onREADME/100nm_SUCROSE50% etc.png)
+![例：相関関数のoverlay](images_onREADME/200nm_etc.png)<br>
 方法：script > plot > overlay_diffusionCoefficient.m
 
 挙動確認後、デモ動画撮影
