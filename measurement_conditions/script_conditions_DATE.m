@@ -10,6 +10,7 @@
 %測定条件入力
 sample_name = "GFP-TDP25 0.763ms"; %sample_name: 任意 (作成されるプロット図のtitleになります）
 filename = "G-TDP25_01_line1_0.762ms.lsm"; %input>DATE>lsmフォルダ内に加えたlsmファイルの名前にする。
+isCorrected = "false"; %光褪色を補正する必要があるかないか。（falseかtrueで指定。デフォルトはfalse=なし）
 
 X_SCALE = 0.022; %μm　
 PIXEL_DWELL = 1.27 *10^(-6); %s
@@ -25,6 +26,7 @@ save(sprintf('measurement_conditions/%s/%s.mat',DATE, filename));
 %測定条件入力
 sample_name = "GFP-TDP25 1.53ms";
 filename = "G-TDP25_01_line2_1.53ms.lsm";
+isCorrected = "false";
 
 X_SCALE = 0.022; %μm
 PIXEL_DWELL = 2.55 *10^(-6); %s

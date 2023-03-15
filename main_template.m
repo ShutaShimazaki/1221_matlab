@@ -24,19 +24,19 @@ addpath(genpath(sprintf("input/%s", DATE)));
 addpath(genpath(sprintf("measurement_conditions/%s", DATE)));
 
 %% 最新のmeasurement_conditionsを反映
-    run(sprintf("script_conditions_%s.m", DATE));
+run(sprintf("script_conditions_%s.m", DATE));
 %% loop回すべき全ファイルを取得
 files = dir(sprintf('measurement_conditions/%s/*.mat', DATE)); 
 filename_array = string({files.name});
 %% 重要なパラメータ(拡散係数など）を保存する空構造体を生成
 if COMPONENT == 1
-    important_parameters_struct = struct('sample_name',{}, 'diffusion_coefficient', {},  'diffusion_time', {}, 'w_radius', {}, 'dwell_time', {},'time_scale', {},'image_size', {});
+    important_parameters_struct = struct('sample_name',{}, 'diffusion_coefficient', {},  'diffusion_time', {}, 'w_radius', {}, 'dwell_time', {},'time_scale', {},'N', {});
 elseif COMPONENT == 2
     important_parameters_struct = struct('sample_name',{}, 'fast_diffusion_coefficient', {},  'fast_diffusion_time', {}, 'slow_diffusion_coefficient', {},  'slow_diffusion_time', {},'fast_fraction',{},'slow_fraction',{}, 'w_radius', {}, 'dwell_time', {},'time_scale', {},'image_size', {});    
 end
 
 %% mkdir (作成されるべきdirectoryが未だ存在しないならば、自動作成してくれる）
-for folder_name = [sprintf("output/%s", DATE)  sprintf("workspace/%s", DATE) sprintf("output/%s/%s", DATE, sample_name) sprintf("output/%s/%s", DATE, sample_name)]
+for folder_name = [sprintf("output/%s", DATE)  sprintf("workspace/%s", DATE) sprintf("output/%s/%s", DATE, sample_name)]
     if not(exist(folder_name,'dir'))
         mkdir(folder_name)
     end
@@ -48,18 +48,25 @@ for idx=1:length(filename_array)
     sprintf("ファイル名は　%s　です", filename_array(idx))
     %測定データをload
     load(sprintf("measurement_conditions/%s/%s", DATE, filename))
-   
+    %output/DATE/sample_nameを新規作成
+    for folder_name = [sprintf("output/%s/%s", DATE, sample_name)]
+        if not(exist(folder_name,'dir'))
+            mkdir(folder_name)
+        end
+    end
     %% LSMファイルをインポート
     XT = imread(sprintf("input/%s/lsm/%s",DATE, filename));
     XT = double(XT);
     
     %% 光褪色による蛍光強度の減衰を補正する
-    if choice == 1
-        run("correct_intensity.m")
-        XT = XT_corrected;
-    elseif choice == 2
-        run("correct_intensity_oneline.m")
-        XT = XT_corrected;
+    if isCorrected == "true"
+        if choice == 1
+            run("correct_intensity.m")
+            XT = XT_corrected;
+        elseif choice == 2
+            run("correct_intensity_oneline.m")
+            XT_oneline = XT_corrected;
+        end
     end
     %% 相関計算
     if choice == 1 %%各ピクセルにおける時間相関の平均を計算する
@@ -82,7 +89,10 @@ for idx=1:length(filename_array)
       elseif choice == 2 %定点X（＝1ピクセル)を選択。このピクセルだけの時間相関を計算する
         NUMBER_TAU = 100; % tauの個数（＝上限）を設定
         %ACF
-        [TAU, COR] = constantX_temporal_correlation(XT, TIME_SCALE, NUMBER_TAU); %XTの次元:TIMESERIES×1
+        if isCorrected == "false"
+            XT_oneline = XT(:, constant_X);
+        end
+        [TAU, COR] = constantX_temporal_correlation(XT_oneline, TIME_SCALE, NUMBER_TAU); %XT_onelineの次元:TIMESERIES×1
         %Run Fitting
          run("fitting_temporal.mlx")
         %Run Plot

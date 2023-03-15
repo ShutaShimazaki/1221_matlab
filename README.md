@@ -17,15 +17,16 @@
 
 ### ‡A‘ª’èğŒ‚Ì“ü—Í<br>
  "script_conditions_DATE.m"iƒeƒ“ƒvƒŒ[ƒgƒtƒ@ƒCƒ‹j‚ğ•¡»‚·‚é<br>
-+measurement_conditions > DATE > script_conditions_DATE.m@‚Æ‚¢‚¤ŠK‘w\‘¢‚É‚·‚é<br>
++measurement_conditions > DATE(©V‹Kì¬‚·‚é) > script_conditions_DATE.m@‚Æ‚¢‚¤ŠK‘w\‘¢‚É‚·‚é<br>
 (—áFmeasurement_conditions > 230112 > script_conditions_230112.m)
 
-+ "script_conditions_DATE.m"‚ğÀŒ±ğŒ‚É‰‚¶‚Ä•ÏX<br>
-filename: ã‹L‡@‚É‚¨‚¢‚Äinput>DATE>lsmƒtƒHƒ‹ƒ_“à‚É‰Á‚¦‚½lsmƒtƒ@ƒCƒ‹‚Ì–¼‘O‚É‚·‚éB<br>
++ "script_conditions_DATE.m"‚É•ÏX‚Æ’Ç‹L‚ğ‚·‚é<br>
+š‚±‚ÌƒXƒNƒŠƒvƒg‚É‹Lq‚µ‚½‘SğŒ‚ª‰ğÍ‘ÎÛ‚É‚È‚è‚Ü‚·š<br>
+**’**@filename: ã‹L‡@‚É‚¨‚¢‚Äinput>DATE>lsmƒtƒHƒ‹ƒ_“à‚É‰Á‚¦‚½lsmƒtƒ@ƒCƒ‹‚Ì–¼‘O‚É‚·‚éB<br>
 i—áFfilename = G-TDP25_01_line1_0.762ms.lsm, filename = G-TDP25_01_line2_1.53ms.lsm)
 
 ### ‡Bmainƒtƒ@ƒCƒ‹‚ğ“®‚©‚·<br>
-1. "main_template.m"‚ğ•¡»‚µ‚ÄA•Ê‚Ìmainƒtƒ@ƒCƒ‹‚ğ‚Â‚­‚é
+1. "main_template.m"‚ğ•¡»‚µ‚ÄA•Ê‚Ìmainƒtƒ@ƒCƒ‹‚ğ‚Â‚­‚èAmainƒtƒHƒ‹ƒ_‚ÖˆÚ“®‚³‚¹‚é
 2. ƒXƒNƒŠƒvƒgã•”‚Ìw—v•ÏXIIxƒZƒNƒVƒ‡ƒ“‚ğ“K‹X‚·‚é<br>
 3. Àsi—Î‚ÌOŠpƒ{ƒ^ƒ“‚ğ‰Ÿ‚·j
 
@@ -35,6 +36,12 @@ filename: ã‹L‡@‚É‚¨‚¢‚Äinput>DATE>lsmƒtƒHƒ‹ƒ_“à‚É‰Á‚¦‚½lsmƒtƒ@ƒCƒ‹‚Ì–¼‘O‚É‚·‚é
 + ACFƒvƒƒbƒg<br>¨"output/DATE/sample_name"ƒtƒHƒ‹ƒ_“à<br>
 + ŠgUŒW”AŠgUŠÔ‚È‚Ç‚Ìƒpƒ‰ƒ[ƒ^<br>¨"workspace/DATE/important_parameters.mat"<br>
 + ƒ[ƒNƒXƒy[ƒXiƒvƒƒOƒ‰ƒ€Às‚Ì•Ï”)<br>¨"workspace/DATE/ACF‚Ìí—Ş_filename.mat"<br>
+
+## main.m‹““®
+Å‰‚É“ü—Í‚µ‚½measurement_conditions > DATE > script_conditions_DATE.m
+**line1`63: €”õ** <br>
+measurement
+**line64`109: ƒƒCƒ“** <br>
 
 ## ƒfƒ‚
 
@@ -46,6 +53,8 @@ filename: ã‹L‡@‚É‚¨‚¢‚Äinput>DATE>lsmƒtƒHƒ‹ƒ_“à‚É‰Á‚¦‚½lsmƒtƒ@ƒCƒ‹‚Ì–¼‘O‚É‚·‚é
 ‡Aƒtƒ@ƒCƒ‹‚âƒtƒHƒ‹ƒ_‚ª‘¶İ‚µ‚È‚¢‚Æ‚¢‚¤ƒGƒ‰[ƒƒbƒZ[ƒW<br>
 Escript_conditionsƒtƒ@ƒCƒ‹‚É“ü—Í‚µ‚½"filename"‚ªŠÔˆá‚Á‚Ä‚¢‚é‰Â”\«‚ª‚ ‚è‚Ü‚·B<br>
 ¨inputƒtƒHƒ‹ƒ_‚É‰Á‚¦‚½lsmƒtƒ@ƒCƒ‹–¼‚Æˆê’v‚³‚¹‚é‚æ‚¤‚É‚µ‚Ä‚­‚¾‚³‚¢B‚»‚µ‚ÄŒë‚Ü‚Á‚½–¼‘O‚ğ‚à‚Âƒtƒ@ƒCƒ‹‚ªmeasurement_conditionsƒtƒHƒ‹ƒ_‚É‘¶İ‚µ‚Ä‚¢‚é‰Â”\«‚ª‚ ‚è‚Ü‚·‚Ì‚Åíœ‚µ‚Ä‚­‚¾‚³‚¢B
+
+‡BGithub‚Æ˜AŒg‚µ‚½‚¢ê‡‚ÍAscanning_fcs.prj‚ğƒNƒŠƒbƒNB˜AŒg‚µ‚½‚¢ƒtƒ@ƒCƒ‹‚âƒtƒHƒ‹ƒ_‚ğƒvƒƒWƒFƒNƒg‚É’Ç‰Á‚µAƒ\[ƒXŠÇ—‚©‚çGithubƒRƒ}ƒ“ƒh‚ğs‚¤
 
 ### ê‡‚É‰‚¶‚Ä•ÏX
 + ƒÑ‚ÌŠÔŠuİ’èF"temporal_correlation.m" ‚ÌTAU_BETWEEN‚Æ‚¢‚¤•Ï”‚Å’è‹`<br>
