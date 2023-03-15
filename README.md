@@ -9,7 +9,7 @@
 + 拡散時間、拡散係数の導出
  
 ## 使い方
-注：DATE = yymmddの形にしてください (例：23年１月12日→ 230112)
+注：DATE = yymmddの形にしてください (例：23年１月12日→ 230112)<br>
 注：様々なところで使われているDATEを統一してください。(main.m, script_conditions.m, 作成するDATEフォルダ)。<br>
 ダメな例：main.mではDATE=221202にしたのにscript_conditions.mではDATE=1202 にするなど
 
