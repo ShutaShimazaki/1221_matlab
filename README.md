@@ -37,6 +37,8 @@
 + ACFプロット<br>→"output/DATE/sample_name"フォルダ内<br>
 + 拡散係数、拡散時間などのパラメータ<br>→"workspace/DATE/important_parameters.mat"<br>
 + ワークスペース（プログラム実行時の変数)<br>→"workspace/DATE/ACFの種類_filename.mat"<br>
++ ワークスペースの"TAU"の右にあるリンクはX軸の値．"COR"が自己相関関数のY軸の値．<br>
+
 
 ## main.m挙動
 最初に入力したmeasurement_conditions > DATE > script_conditions_DATE.m
