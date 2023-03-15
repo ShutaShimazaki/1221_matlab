@@ -39,15 +39,6 @@
 + ワークスペース（プログラム実行時の変数)<br>→"workspace/DATE/ACFの種類_filename.mat"<br>
 + ワークスペースの"TAU"の右にあるリンクはX軸の値．"COR"が自己相関関数のY軸の値．<br>
 
-
-## main.m挙動
-最初に入力したmeasurement_conditions > DATE > script_conditions_DATE.m
-**line1～63: 準備** <br>
-measurement
-**line64～109: メイン** <br>
-
-## デモ
-
 ## 注意
 ### エラーメッセージと解決策<br>
 ①fittingでのエラー<br>
@@ -80,10 +71,9 @@ mail to: zakishima.39@icloud.com
 banana > shimazaki > 解析 > "拡散係数プロットテンプレート"
 
 ### 複数の相関関数プロット<br>
+１つ１つの相関関数を縦軸1～２に規格化し、重ねることができます
 + **完成例**<br>
 ![ex2](images_onREADME/200nm_etc.png)<br>
 
 + **方法**<br>
  script > plot > overlay_diffusionCoefficient.mを使用<br>
-１つ１つの相関関数を縦軸1～２に規格化し、重ねることができます
-挙動確認後、デモ動画撮影
