@@ -1,86 +1,87 @@
 # Scanning FCS
-## �ł��邱��
-+ �u�����x�����̕␳<br>
-+ �␳�����u�����x�Ɋ�Â����֊֐��̌v�Z<br>
-�����ԑ��ցi�e�s�N�Z���̕��ρj/���ԑ��ցi�C�ӂ̂P�s�N�Z���j/ ����ԑ��ց@����I����
-+ ���֊֐��̃t�B�b�e�B���O<br>
-���P�����g�U/�Q�����g�U���f����I����
-+ ���֊֐��̃v���b�g<br>
-+ �g�U���ԁA�g�U�W���̓��o
+## できること
++ 蛍光強度減衰の補正<br>
++ 補正した蛍光強度に基づく相関関数の計算<br>
+→時間相関（各ピクセルの平均）/時間相関（任意の１ピクセル）/ 時空間相関　から選択可
++ 相関関数のフィッティング<br>
+→１成分拡散/２成分拡散モデルを選択可
++ 相関関数のプロット<br>
++ 拡散時間、拡散係数の導出
  
-## �g����
-���FDATE = yymmdd�̌`�ɂ��Ă������� (��F23�N�P��12���� 230112)
+## 使い方
+注：DATE = yymmddの形にしてください (例：23年１月12日→ 230112)
 
-### �@LSM�f�[�^��������<br>
-+ input > DATE > lsm > �Slsm�t�@�C���@�Ƃ����K�w�\���ɂ���<br>
-(��Finput > 230112 > lsm > G-TDP25_01_line1_0.762ms.lsm, G-TDP25_01_line2_1.53ms.lsm�E�E)
+### ①LSMデータを加える<br>
++ input > DATE > lsm > 全lsmファイル　という階層構造にする<br>
+(例：input > 230112 > lsm > G-TDP25_01_line1_0.762ms.lsm, G-TDP25_01_line2_1.53ms.lsm・・)
 
-### �A��������̓���<br>
- "script_conditions_DATE.m"�i���e���v���[�g�t�@�C���j�𕡐�����<br>
-+measurement_conditions > DATE(���V�K�쐬����) > script_conditions_DATE.m�@�Ƃ����K�w�\���ɂ���<br>
-(��Fmeasurement_conditions > 230112 > script_conditions_230112.m)
+### ②測定条件の入力<br>
+ "script_conditions_DATE.m"（＝テンプレートファイル）を複製する<br>
++measurement_conditions > DATE(←新規作成する) > script_conditions_DATE.m　という階層構造にする<br>
+(例：measurement_conditions > 230112 > script_conditions_230112.m)
 
-+ "script_conditions_DATE.m"�ɕύX�ƒǋL������<br>
-�����̃X�N���v�g�ɋL�q�����S��������͑ΏۂɂȂ�܂���<br>
-**��**�@filename: ��L�@�ɂ�����input>DATE>lsm�t�H���_���ɉ�����lsm�t�@�C���̖��O�ɂ���B<br>
-�i��Ffilename = G-TDP25_01_line1_0.762ms.lsm, filename = G-TDP25_01_line2_1.53ms.lsm)
++ "script_conditions_DATE.m"に変更と追記をする<br>
+★このスクリプトに記述した全条件が解析対象になります★<br>
+解析したいファイルの数だけスクリプト項目を増減させる<br>
+**注**　filename: 上記①においてinput>DATE>lsmフォルダ内に加えたlsmファイルの名前にする。<br>
+（例：filename = G-TDP25_01_line1_0.762ms.lsm, filename = G-TDP25_01_line2_1.53ms.lsm)
 
-### �Bmain�t�@�C���𓮂���<br>
-1. "main_template.m"�𕡐����āA�ʂ�main�t�@�C��������Amain�t�H���_�ֈړ�������
-2. �X�N���v�g�㕔�́w�v�ύX�I�I�x�Z�N�V������K�X����<br>
-3. ���s�i�΂̎O�p�{�^���������j
+### ③mainファイルを動かす<br>
+1. "main_template.m"を複製して、別のmainファイルをつくり、mainフォルダへ移動させる
+2. スクリプト上部の『要変更！！』セクションを適宜する<br>
+3. 実行（緑の三角ボタンを押す）
 
-**���s���ē�������̂ƕۑ��ꏊ**<br>
-���v���b�g��png�`��, fig�`��(matlab�ŊJ����)�̗����ŕۑ�����܂���<br>
-+ �␳�O�ƕ␳��̌u�����x�v���b�g<br>��"output/DATE/sample_name"�t�H���_��<br>
-+ ACF�v���b�g<br>��"output/DATE/sample_name"�t�H���_��<br>
-+ �g�U�W���A�g�U���ԂȂǂ̃p�����[�^<br>��"workspace/DATE/important_parameters.mat"<br>
-+ ���[�N�X�y�[�X�i�v���O�������s���̕ϐ�)<br>��"workspace/DATE/ACF�̎��_filename.mat"<br>
+**実行して得られるものと保存場所**<br>
+★プロットはpng形式, fig形式(matlabで開ける)の両方で保存されます★<br>
++ 補正前と補正後の蛍光強度プロット<br>→"output/DATE/sample_name"フォルダ内<br>
++ ACFプロット<br>→"output/DATE/sample_name"フォルダ内<br>
++ 拡散係数、拡散時間などのパラメータ<br>→"workspace/DATE/important_parameters.mat"<br>
++ ワークスペース（プログラム実行時の変数)<br>→"workspace/DATE/ACFの種類_filename.mat"<br>
 
-## main.m����
-�ŏ��ɓ��͂���measurement_conditions > DATE > script_conditions_DATE.m
-**line1�`63: ����** <br>
+## main.m挙動
+最初に入力したmeasurement_conditions > DATE > script_conditions_DATE.m
+**line1～63: 準備** <br>
 measurement
-**line64�`109: ���C��** <br>
+**line64～109: メイン** <br>
 
-## �f��
+## デモ
 
-## ����
-### �G���[���b�Z�[�W�Ɖ�����<br>
-�@fitting�ł̃G���[<br>
-�����l��ς���Ƃ��܂�����
+## 注意
+### エラーメッセージと解決策<br>
+①fittingでのエラー<br>
+初期値を変えるとうまくいく
 
-�A�t�@�C����t�H���_�����݂��Ȃ��Ƃ����G���[���b�Z�[�W<br>
-�Escript_conditions�t�@�C���ɓ��͂���"filename"���Ԉ���Ă���\��������܂��B<br>
-��input�t�H���_�ɉ�����lsm�t�@�C�����ƈ�v������悤�ɂ��Ă��������B�����Č�܂������O�����t�@�C����measurement_conditions�t�H���_�ɑ��݂��Ă���\��������܂��̂ō폜���Ă��������B
+②ファイルやフォルダが存在しないというエラーメッセージ<br>
+・script_conditionsファイルに入力した"filename"が間違っている可能性があります。<br>
+→inputフォルダに加えたlsmファイル名と一致させるようにしてください。そして誤まった名前をもつファイルがmeasurement_conditionsフォルダに存在している可能性がありますので削除してください。
 
-�BGithub�ƘA�g�������ꍇ�́Ascanning_fcs.prj���N���b�N�B�A�g�������t�@�C����t�H���_���v���W�F�N�g�ɒǉ����A�\�[�X�Ǘ�����Github�R�}���h���s��
+③Githubと連携したい場合は、scanning_fcs.prjをクリック。連携したいファイルやフォルダをプロジェクトに追加し、ソース管理からGithubコマンドを行う
 
-### �ꍇ�ɉ����ĕύX
-+ �т̊Ԋu�ݒ�F"temporal_correlation.m" ��TAU_BETWEEN�Ƃ����ϐ��Œ�`<br>
-+ �т̌�����F"main.m"��NUMBER_TAU�Ƃ����ϐ��Œ�`<br>
-**�f�t�H���g�F��= TAU_BETWEEN *TIME_SCALE **<br>
-�ETAU_BETWEEN = 10^0�`10^3�͈̔͂őΐ��I�ɓ��Ԋu��100�̓_=[1,2,3,�E�E, 870,933,1000]<br>
-�ETIME_SCALE���X�L�����Ō��̃s�N�Z���ɖ߂��Ă���܂ł̎���
+### 場合に応じて変更
++ τの間隔設定："temporal_correlation.m" のTAU_BETWEENという変数で定義<br>
++ τの個数上限："main.m"のNUMBER_TAUという変数で定義<br>
+**デフォルト：τ= TAU_BETWEEN *TIME_SCALE **<br>
+・TAU_BETWEEN = 10^0～10^3の範囲で対数的に等間隔な100個の点=[1,2,3,・・, 870,933,1000]<br>
+・TIME_SCALE＝スキャンで元のピクセルに戻ってくるまでの時間
 
-## �A��
+## 連絡
 mail to: zakishima.39@icloud.com
 
-## ���̑��@�g���Ă������� ![](images_onREADME/)
-### �g�U�W���̃v���b�g
-+ **������**<br>
-![ex](images_onREADME/�r�[�Y�a�Ɗg�U�W��.png)<br>
-+ **���@**
-1. workspace�t�@�C����important_parameters�Ƃ����ϐ��̒��g���݂�<br>
+## その他　使っていたもの ![](images_onREADME/)
+### 拡散係数のプロット
++ **完成例**<br>
+![ex](images_onREADME/ビーズ径と拡散係数.png)<br>
++ **方法**
+1. workspaceファイルのimportant_parametersという変数の中身をみる<br>
 ![important_parameters](images_onREADME/important_parameters.png)<br>
-2. �ȉ��̃t�@�C���֓\��t����<br>
-banana > shimazaki > ��� > "�g�U�W���v���b�g�e���v���[�g"
+2. 以下のファイルへ貼り付ける<br>
+banana > shimazaki > 解析 > "拡散係数プロットテンプレート"
 
-### �����̑��֊֐��v���b�g<br>
-+ **������**<br>
+### 複数の相関関数プロット<br>
++ **完成例**<br>
 ![ex2](images_onREADME/200nm_etc.png)<br>
 
-+ **���@**<br>
- script > plot > overlay_diffusionCoefficient.m���g�p<br>
-�P�P�̑��֊֐����c��1�`�Q�ɋK�i�����A�d�˂邱�Ƃ��ł��܂�
-�����m�F��A�f������B�e
++ **方法**<br>
+ script > plot > overlay_diffusionCoefficient.mを使用<br>
+１つ１つの相関関数を縦軸1～２に規格化し、重ねることができます
+挙動確認後、デモ動画撮影
