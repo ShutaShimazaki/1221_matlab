@@ -56,15 +56,16 @@ mail to: zakishima.39@icloud.com
 
 ## その他　使っていたもの ![](images_onREADME/)
 ###拡散係数のプロット
-
-1. workspaceファイルのimportant_parametersという変数の中身をみる
-![important_parameters](images_onREADME/important_parameters.png)
-
-拡散係数プロっとエクセルファイル
+![ex](images_onREADME/ビーズ径と拡散係数.png)
+1. workspaceファイルのimportant_parametersという変数の中身をみる<br>
+![important_parameters](images_onREADME/important_parameters.png)<br>
+2. 以下のファイルへ貼り付ける<br>
+banana > shimazaki > 解析 > "拡散係数プロットテンプレート"
 
 ###相関関数を重ねる<br>
 ![ex1](images_onREADME/100nm_SUCROSE50%_etc.png)
 ![ex2](images_onREADME/200nm_etc.png)<br>
-方法：script > plot > overlay_diffusionCoefficient.m
 
+方法：script > plot > overlay_diffusionCoefficient.mを使用
 挙動確認後、デモ動画撮影
+最後banana>MATLABを最新の状態へ
