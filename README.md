@@ -50,25 +50,28 @@ filename: ã‹L‡@‚É‚¨‚¢‚Äinput>DATE>lsmƒtƒHƒ‹ƒ_“à‚É‰Á‚¦‚½lsmƒtƒ@ƒCƒ‹‚Ì–¼‘O‚É‚·‚é
 ### ê‡‚É‰‚¶‚Ä•ÏX
 + ƒÑ‚ÌŠÔŠuİ’èF"temporal_correlation.m" ‚ÌTAU_BETWEEN‚Æ‚¢‚¤•Ï”‚Å’è‹`<br>
 + ƒÑ‚ÌŒÂ”ãŒÀF"main.m"‚ÌNUMBER_TAU‚Æ‚¢‚¤•Ï”‚Å’è‹`<br>
+**ƒfƒtƒHƒ‹ƒgFƒÑ= TAU_BETWEEN *TIME_SCALE **<br>
+ETAU_BETWEEN = 10^0`10^3‚Ì”ÍˆÍ‚Å‘Î”“I‚É“™ŠÔŠu‚È100ŒÂ‚Ì“_=[1,2,3,EE, 870,933,1000]<br>
+ETIME_SCALEƒXƒLƒƒƒ“‚ÅŒ³‚ÌƒsƒNƒZƒ‹‚É–ß‚Á‚Ä‚­‚é‚Ü‚Å‚ÌŠÔ
 
 ## ˜A—
 mail to: zakishima.39@icloud.com
 
 ## ‚»‚Ì‘¼@g‚Á‚Ä‚¢‚½‚à‚Ì ![](images_onREADME/)
 ### ŠgUŒW”‚Ìƒvƒƒbƒg
-**Š®¬—á**<br>
++ **Š®¬—á**<br>
 ![ex](images_onREADME/ƒr[ƒYŒa‚ÆŠgUŒW”.png)<br>
-**•û–@**
++ **•û–@**
 1. workspaceƒtƒ@ƒCƒ‹‚Ìimportant_parameters‚Æ‚¢‚¤•Ï”‚Ì’†g‚ğ‚İ‚é<br>
 ![important_parameters](images_onREADME/important_parameters.png)<br>
 2. ˆÈ‰º‚Ìƒtƒ@ƒCƒ‹‚Ö“\‚è•t‚¯‚é<br>
 banana > shimazaki > ‰ğÍ > "ŠgUŒW”ƒvƒƒbƒgƒeƒ“ƒvƒŒ[ƒg"
 
 ### •¡”‚Ì‘ŠŠÖŠÖ”ƒvƒƒbƒg<br>
-**Š®¬—á**<br>
++ **Š®¬—á**<br>
 ![ex2](images_onREADME/200nm_etc.png)<br>
 
-**•û–@** script > plot > overlay_diffusionCoefficient.m‚ğg—p<br>
++ **•û–@**<br>
+ script > plot > overlay_diffusionCoefficient.m‚ğg—p<br>
 ‚P‚Â‚P‚Â‚Ì‘ŠŠÖŠÖ”‚ğc²1`‚Q‚É‹KŠi‰»‚µAd‚Ë‚é‚±‚Æ‚ª‚Å‚«‚Ü‚·
 ‹““®Šm”FŒãAƒfƒ‚“®‰æB‰e
-ÅŒãbanana>MATLAB‚ğÅV‚Ìó‘Ô‚Ö
